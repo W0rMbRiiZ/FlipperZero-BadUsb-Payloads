@@ -1,0 +1,53 @@
+REM Espera 2 segundos para dar tiempo al usuario.
+DELAY 2000
+
+REM Abre el Símbolo del sistema.
+GUI r
+DELAY 500
+STRING cmd
+ENTER
+DELAY 1000
+
+REM Oculta los comandos y cambia el color del texto a verde (estilo "Matrix").
+STRING @echo off
+ENTER
+DELAY 500
+STRING color 0a
+ENTER
+DELAY 500
+
+REM Muestra los primeros mensajes de error.
+STRING echo [ERROR CRITICO] Corrupcion de memoria detectada.
+ENTER
+DELAY 2000
+STRING echo [FALLO] Nucleo del sistema inestable.
+ENTER
+DELAY 2000
+
+REM Inicia una falsa cuenta atras para el "apagado".
+STRING echo Apagando el sistema en...
+ENTER
+DELAY 1500
+STRING echo 3...
+ENTER
+DELAY 1500
+STRING echo 2...
+ENTER
+DELAY 1500
+STRING echo 1...
+ENTER
+DELAY 1500
+
+REM El momento de la broma.
+STRING echo ----------------------------------------------------
+ENTER
+DELAY 500
+STRING echo ERROR 404: El miedo no se encontro. ¡Es una broma!
+ENTER
+DELAY 1000
+STRING echo ----------------------------------------------------
+ENTER
+
+REM Mantiene la ventana abierta para que se pueda leer el mensaje final.
+STRING pause
+ENTER

