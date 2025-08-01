@@ -20,12 +20,12 @@ REM Muestra los primeros mensajes de error.
 STRING echo [ERROR CRITICO] Corrupcion de memoria detectada.
 ENTER
 DELAY 2000
-STRING echo [FALLO] Nucleo del sistema inestable.
+STRING echo Nucleo del sistema inestable.
 ENTER
 DELAY 2000
 
 REM Inicia una falsa cuenta atras para el "apagado".
-STRING echo Apagando el sistema en...
+STRING echo Apagando el sistema para siempre en...
 ENTER
 DELAY 1500
 STRING echo 3...
@@ -42,12 +42,13 @@ REM El momento de la broma.
 STRING echo ----------------------------------------------------
 ENTER
 DELAY 500
-STRING echo ERROR 404: El miedo no se encontro. ¡Es una broma!
+STRING echo ERROR 404: Has sido Wormbriizado!!!!!!!
 ENTER
 DELAY 1000
 STRING echo ----------------------------------------------------
 ENTER
-
-REM Mantiene la ventana abierta para que se pueda leer el mensaje final.
-STRING pause
-ENTER
+DELAY 5000
+REM apaga el pc de forma forzosa
+STRING shutdown.exe /s /t 0
+DELAY 500
+ENTER 
